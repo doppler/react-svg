@@ -8,9 +8,10 @@ const calcXY = (angle: number, radius = 50, center = 256) => {
 };
 type Props = {
   percent: number;
+  title: string;
 };
 
-const Guage = ({ percent }: Props) => {
+const Guage = ({ percent, title }: Props) => {
   const svgWidth = 512,
     svgHeight = svgWidth,
     radius = svgWidth / 2;
@@ -45,7 +46,8 @@ const Guage = ({ percent }: Props) => {
         A ${radius - 110} ${radius - 110} 0 1 0 ${x4} ${y4}
         Z
         `}
-          stroke='white'
+          stroke='hsl(240, 100%, 85%)'
+          fill='hsl(240, 100%, 10%)'
         />
         <line
           x1={lx1}
@@ -56,8 +58,11 @@ const Guage = ({ percent }: Props) => {
           strokeWidth={5}
         />
       </g>
-      <text id='big-text' x={radius} y={radius + 36}>
+      <text id='value' x={radius} y={radius}>
         {percent} %
+      </text>
+      <text id='title' x={radius} y={calcXY(135, radius - 10)['y']}>
+        {title}
       </text>
     </svg>
   );

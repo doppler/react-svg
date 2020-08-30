@@ -12,9 +12,19 @@ body {
 #svg {
   max-width: 100vh;
 }
+input[type='range'] {
+  width: 100%;
+}
 
-#Guage text#big-text {
-  fill: hsl(30, 100%, 50%);
-  font-size: 96px;
+#Guage text {
   text-anchor: middle;
+  dominant-baseline: middle;
+}
+#Guage text#value {
+  font-size: 96px;
+  fill: hsl(60, 100%, 50%);
+}
+#Guage text#title {
+  font-size: 48px;
+  fill: hsl(240, 100%, 85%);
 }
